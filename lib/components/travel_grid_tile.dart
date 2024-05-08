@@ -33,25 +33,29 @@ class TravelGridTile extends StatelessWidget {
         children: [
           //Thumnails
           AspectRatio(
-            aspectRatio: 3 / 2,
+            aspectRatio: 1,
             child: Image(
-              image: AssetImage('assets/images/Kawah Putih Ciwidey.jpg'),
-              fit: BoxFit.fill,
+              image: AssetImage(imagePath),
+              fit: BoxFit.cover,
             ),
           ),
           // Title
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-            child: Text(
-              "Kawah Putih Ciwidey",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          Flexible( // Menggunakan Flexible untuk membuat teks berukuran proporsional
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                maxLines: 2, // Menentukan jumlah maksimal baris
+                overflow: TextOverflow.fade, // Menambahkan ellipsis jika terjadi overflow
+              ),
             ),
           ),
 
           // location
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
-            child: Text("Bandung",
+            child: Text(location,
                 style: TextStyle(
                   fontSize: 12,
                 )),

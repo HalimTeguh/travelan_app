@@ -40,7 +40,7 @@ class TravelTile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/Kawah Putih Ciwidey.jpg'),
+                                imagePath),
                             fit: BoxFit.cover)),
                   ),
                 ),
@@ -52,13 +52,13 @@ class TravelTile extends StatelessWidget {
                   // Title
                   Text(
                     maxLines: 2,
-                    "Kawah Putih Ciwidey",
+                    title,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
 
                   // Lokasi
                   Text(
-                    "Bandung",
+                    location,
                     style: TextStyle(fontSize: 14),
                   ),
                 ],
