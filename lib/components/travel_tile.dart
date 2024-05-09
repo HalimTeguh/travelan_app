@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelan_app/pages/detail_page.dart';
 
 class TravelTile extends StatelessWidget {
   const TravelTile({
@@ -6,11 +7,13 @@ class TravelTile extends StatelessWidget {
     required this.title,
     required this.location,
     required this.imagePath,
+    required this.description,
   });
 
   final String title;
   final String location;
   final String imagePath;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,17 @@ class TravelTile extends StatelessWidget {
                   spreadRadius: 5),
             ]),
         child: ListTile(
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext context) {
+              return DetailPage(
+                title: title,
+                location: location,
+                description: description,
+                imagePath: imagePath,
+              );
+            }));
+          },
           title: Row(
             children: [
               Container(
@@ -39,9 +53,7 @@ class TravelTile extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: AssetImage(
-                                imagePath),
-                            fit: BoxFit.cover)),
+                            image: AssetImage(imagePath), fit: BoxFit.cover)),
                   ),
                 ),
               ),
